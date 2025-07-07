@@ -19,6 +19,10 @@ app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
 app.use("/simgs",express.static("./shopimgs"))
 app.use("/",rt)
+app.get("/health", (req, res) => {
+  res.send("Backend is healthy");
+});
+
 
 mongoose.connect(process.env.MONGO_URI).then(() => {
   console.log("MongoDB connected");
