@@ -16,6 +16,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 app.use("/simgs",express.static("./shopimgs"))
 app.use("/",rt)
 
