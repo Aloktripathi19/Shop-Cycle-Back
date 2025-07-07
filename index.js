@@ -8,7 +8,11 @@ let bodyParser = require("body-parser")
 let app=express()
 app.use(express.json())
 app.use(bodyParser.urlencoded({"extended":true}))
-app.use(cors())
+app.use(cors({
+  origin: ["https://shop-cycle.vercel.app", "http://localhost:3000"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use("/simgs",express.static("./shopimgs"))
 app.use("/",rt)
 
